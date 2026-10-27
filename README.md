@@ -2,7 +2,7 @@
 
 面向 2027 届 Java 开发岗位的交易履约与运营协同平台。项目围绕支付回调、库存预占、订单状态机和可靠事件投递构建完整业务链路，并提供可公开操作的 Vue 3 工作台。
 
-- 在线演示：https://tradeflow-demo.onrender.com
+- 在线演示：https://tradeflow-demo-63gh.onrender.com
 - 演示账号：`admin` / `admin123`
 - 技术栈：Java 21、Spring Boot 3.3、Spring Security、Spring Data JPA、MySQL、Vue 3、Docker、Render
 
@@ -42,6 +42,7 @@ docker run --rm tradeflow-test mvn test
 - [使用与演示路线](docs/USAGE_GUIDE.md)
 - [架构与技术取舍](docs/ARCHITECTURE.md)
 - [Java 面试问答](docs/INTERVIEW_GUIDE.md)
+- [岗位要求与项目证据](docs/JOB_ALIGNMENT.md)
 
 ## 真实性边界
 
