@@ -15,6 +15,7 @@
 - JWT + BCrypt 无状态认证，统一异常响应和参数校验。
 - 幂等种子数据包含 28 条订单、6 个 SKU、支付流水和领域事件，可直接演示。
 - 多阶段 Docker 构建将 Vue 静态资源和 Spring Boot 打包到同一运行镜像。
+- 线上数据库使用 TiDB Cloud Starter 的 MySQL 兼容接口，独立 `tradeflow` schema，并通过 JDBC TLS 连接。
 
 ## 本地运行
 
