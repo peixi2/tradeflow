@@ -1,0 +1,29 @@
+services:
+  - type: web
+    name: tradeflow-demo
+    runtime: docker
+    plan: free
+    region: singapore
+    dockerfilePath: ./Dockerfile
+    healthCheckPath: /health
+    autoDeployTrigger: commit
+    envVars:
+      - key: DB_URL
+        sync: false
+      - key: DB_USERNAME
+        sync: false
+      - key: DB_PASSWORD
+        sync: false
+      - key: DB_DRIVER
+        value: com.mysql.cj.jdbc.Driver
+      - key: JWT_SECRET
+        generateValue: true
+      - key: DEMO_USERNAME
+        value: admin
+      - key: DEMO_PASSWORD
+        sync: false
+      - key: DEMO_SEED_ENABLED
+        value: "true"
+      - key: TZ
+        value: Asia/Shanghai
+

@@ -1,0 +1,29 @@
+services:
+  mysql:
+    image: mysql:8.4
+    environment:
+      MYSQL_DATABASE: tradeflow
+      MYSQL_USER: tradeflow
+      MYSQL_PASSWORD: tradeflow
+      MYSQL_ROOT_PASSWORD: rootpass
+    volumes: [tradeflow_mysql:/var/lib/mysql]
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost", "-uroot", "-prootpass"]
+      interval: 5s
+      timeout: 3s
+      retries: 20
+  app:
+    build: .
+    ports: ["8080:8080"]
+    depends_on:
+      mysql: {condition: service_healthy}
+    environment:
+      DB_URL: jdbc:mysql://mysql:3306/tradeflow?useUnicode=true&characterEncoding=utf8&serverTimezone=Asia/Shanghai
+      DB_USERNAME: tradeflow
+      DB_PASSWORD: tradeflow
+      DB_DRIVER: com.mysql.cj.jdbc.Driver
+      JWT_SECRET: local-tradeflow-secret-key-at-least-thirty-two-bytes
+      DEMO_PASSWORD: admin123
+volumes:
+  tradeflow_mysql:
+
